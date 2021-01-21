@@ -1,1 +1,2 @@
-# contains the meteor class
+eteor class
+i´m a meteor class
