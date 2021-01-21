@@ -1,0 +1,32 @@
+import numpy as np
+from ersterpart import deltaT
+from interpol import interpol
+fehler=0
+w=[-1,-0.5,0,0.5,1]
+a=[]
+a=np.array(a)
+kd1 = genfromtxt('Moritz.txt', delimiter='\t',skip_header=1)
+kd2 = genfromtxt('Jakob.txt', delimiter='\t',skip_header=1)
+for qw in range(5):
+    for Dt in w:
+        kd2=deltaT(kd2, Dt)
+        kd1,kd2=inerpol(kd1,kd2)
+        sp=schnittpunkt(kd1,kd2)
+        for loop in range(len(sp)):
+            fehler+=(sp[1][loop][0]-sp[0][loop][0])**2+(sp[1][loop][1]-sp[0][loop][1])**2+(sp[1][loop][2]-sp[0][loop][2])**2
+        a.append([Dt,fehler])
+        
+        h=min(a[1])
+        j=index.a(h)
+        a[0][j]=w0
+        try:
+            a[0][j+1]=w1
+        except:
+            a[0][j]+1=w1
+        try:
+            a[0][j-1]=-w1
+        except:
+            a[0][j]-1=-w1
+	
+
+#endgültige Positons bestimmung

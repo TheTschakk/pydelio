@@ -1,0 +1,42 @@
+import numpy as np
+def schnittp(kd1,kd2):
+    //Kamera1 Darmstadt Gundernhausen
+    x_a=[3842,52484,165]
+
+    //Kamera2 Worms Pfeddersheim
+    x_b=[-32696,25851,118]
+
+    sp=[[np.zeros(3) for y in range(len(kd1))] for x in range(2)]
+
+    for n in range(len(kd1)):
+	alpha_A=kd1[n][]
+	beta_A=kd1[n][]
+
+	alpha_B=kd2[n][]
+	beta_B=kd2[n][]
+
+	alpha=np.cos(alpha_A)*np.cos(beta_A)
+
+	beta=np.cos(alpha_A)*np.cos(beta_B)
+
+	gamma=np.cos(alpha_B)*np.sin(beta_B)
+
+	delta=np.cos(alpha_A)*np.(beata_A)
+
+	detB=-gamma*alpha*(delta*beta-alpha*gamma)
+	detB-=delta*np.sin(alpha_B)*(alpha*np.sin(alpha_B)-delta*np.sin(alpha_B))
+        detB-=beta*np.sin(alpha_a)*(alpha*np.sin(alpha_B)-beta*np.sin(alpha_A))
+	detB+=alpha*np.sin(alpha_B)*(alpha*np.sin(alpha_B)-beta*np.sin(alpha_A))
+        detB+=gamma*np.sin(alpha_A)*(gamma*np.sin(alpha_A)-delat*np.sin(alpha_B))
+        detB+=beta*delta*(delta*beta-alpha*gamma)
+	
+        detB_1=
+
+	detA=
+	detA_1=
+
+	t_b=detB_1/detB 
+	t_a=detA_1/detA
+	
+        sp[0][n]=x_b+t_b*m_b
+    	sp[1][n]=x_a+t_a*m_a
