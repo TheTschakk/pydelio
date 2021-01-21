@@ -6,8 +6,8 @@ fehler=0#varibeln intialliesieren
 w=[1,0.5,0,-0.5,-1]
 a=[np.zeros(2) for i in range(5)]
 a=np.array(a)
-kd1 = np.genfromtxt('video0_20170721_000058_179.txt', delimiter='\t',skip_header=1)
-kd2 = np.genfromtxt('video1_20170721_000052_918.txt', delimiter='\t',skip_header=1)
+kd1 = np.genfromtxt('./data/video0_20170721_000058_179.txt', delimiter='\t',skip_header=1)
+kd2 = np.genfromtxt('./data/video1_20170721_000052_918.txt', delimiter='\t',skip_header=1)
 for p in range(len(kd1)): #ins Bogenmaß umrechnen
     kd1[p][1]=360-kd1[p][1]
     kd1[p][1]=kd1[p][1]*np.pi/180
@@ -67,5 +67,5 @@ for i in range(len(sp[0])):# durchschnitts punkt bestimmen
     z=(sp[0][i][2]+sp[1][i][2])/2
     t=kd1i[i][0]-kd1i[len(sp[0])-1][0]
     Ps.append([t,x,y,z])
-#print(Ps)
-np.savetxt("test.txt",Ps, delimiter='\t')
+print(Ps)
+#np.savetxt("test.txt",Ps, delimiter='\t')
